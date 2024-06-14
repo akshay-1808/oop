@@ -1,67 +1,59 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
-class Complex
+class complex
 {
-    float real;
-    float img;
-
-public:
-    Complex();
-    Complex(float, float);
-    Complex operator+(Complex &);
-    Complex operator-(Complex &);
-    float getReal();
-    float getImg();
+	private:
+		int real;
+		int imaginary;
+	public:
+		void setreal(int);
+		int getreal();
+		void setima(int);
+		int getima();
+		complex operator+(complex& q);
 };
-Complex::Complex()
+void complex::setreal(int k)
 {
-    real = img = 0;
+	real=k;
 }
-Complex ::Complex(float real, float img)
+int complex::getreal()
 {
-    this->real = real;
-    this->img = img;
+	return real;
 }
-Complex Complex ::operator+(Complex &temp)
+void complex::setima(int l)
 {
-    Complex ans;
-    ans.real = real + temp.real;
-    ans.img = img + temp.img;
-    return ans;
+	imaginary=l;
 }
-Complex Complex ::operator-(Complex &temp)
+int complex::getima()
 {
-    Complex ans;
-    ans.real = real - temp.real;
-    ans.img = img - temp.img;
-    return ans;
+	return imaginary;
 }
-float Complex::getReal()
+complex complex::operator+(complex &q)
 {
-    return real;
-}
-float Complex:: getImg()
-{
-    return img;
+	complex r;
+	r.real=real+q.real;
+	r.imaginary=imaginary+q.imaginary;
+	return r;
 }
 int main()
 {
-    float real1, img1, real2, img2;
-    cout << "Enter the First real part of number:";
-    cin >> real1;
-    cout << "Enter the First img part of number:";
-    cin >> img1;
-    Complex c1(real1, img1);
-    cout << "Enter the secomd real part of number:";
-    cin >> real2;
-    cout << "Enter the secomd img part of number:";
-    cin >> img2;
-    Complex c2(real2, img2);
-
-    Complex sum = c1 + c2;
-    Complex sub = c1 -  c2;
-
-    cout << "Sum of complex no. is:"<<sum.getReal()<<"+"<<"i"<<sum.getImg()<<endl;
-    cout << "Sub of complex no. is:"<<sub.getReal()<<"-"<<"i"<<sub.getImg()<<endl;
-    return 0;
+	complex p,q,r;
+	cout<<"enter real value of a"<<endl;
+	int reala;
+	cin>>reala;
+	p.setreal(reala);
+	cout<<"enter imaginary value of a"<<endl;
+	int imaa;
+	cin>>imaa;
+	p.setima(imaa);
+	cout<<"enter real value of b"<<endl;
+	int realb;
+	cin>>realb;
+	q.setreal(realb);
+	cout<<"enter imaginary value of b"<<endl;
+	int imab;
+	cin>>imab;
+	q.setima(imab);
+	r=p+q;
+	cout<<"value :"<<r.getreal()<<" + i"<<r.getima()<<endl;
 }
